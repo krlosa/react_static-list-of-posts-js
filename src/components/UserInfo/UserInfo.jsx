@@ -1,4 +1,5 @@
-import './UserInfo.scss'
+import './UserInfo.scss';
+
 export const UserInfo = ({ user }) => {
   if (!user) return null;
 
@@ -8,4 +9,3 @@ export const UserInfo = ({ user }) => {
     </a>
   );
 };
-
