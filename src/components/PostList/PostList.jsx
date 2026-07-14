@@ -3,13 +3,13 @@ import { PostInfo } from '../PostInfo';
 
 export const PostList = ({ posts }) => (
   <div className="PostList">
-    {/* Renderiza um card de post para cada elemento da lista */}
+    {/* Renderiza um bloco de post para cada item da lista */}
     {posts.map(post => {
-      // Se não houver usuário associado, não renderiza esse post.
+      // Evita renderizar posts sem usuário associado, preservando a consistência do conteúdo.
       if (!post.user) return null;
 
       return (
-        // O elemento raiz do map recebe a key, não o componente interno.
+        // A key deve ficar no elemento raiz retornado pelo map para o React identificar corretamente cada item.
         <div key={post.id} className="PostList__item">
           <PostInfo post={post} />
         </div>
