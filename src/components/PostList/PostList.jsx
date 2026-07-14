@@ -1,20 +1,18 @@
 import './PostList.scss';
 import { PostInfo } from '../PostInfo';
 
-export const PostList = ({ posts, comments, users }) => (
+export const PostList = ({ posts }) => (
   <div className="PostList">
+    {/* Renderiza um card de post para cada elemento da lista */}
     {posts.map(post => {
-      const postUser = users.find(u => u.id === post.userId);
-
-      if (!postUser) return null;
+      // Se não houver usuário associado, não renderiza esse post.
+      if (!post.user) return null;
 
       return (
-        <PostInfo
-          key={post.id}
-          post={post}
-          comments={comments}
-          user={postUser}
-        />
+        // O elemento raiz do map recebe a key, não o componente interno.
+        <div key={post.id} className="PostList__item">
+          <PostInfo post={post} />
+        </div>
       );
     })}
   </div>
